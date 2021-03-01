@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet">
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Scribble It</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#2d89ef" />
+    <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+    <!-- <meta name="theme-color" content="#ffffff" /> -->
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="wrapper_item" id="main">
+            <div class="textbox" id="middle">
+
+                <button type="button" name="button" id="refresh" class="generic_button" onclick="refreshRooms()">
+                    Refresh
+                </button>
+                <div id="room_list"></div>
+            </div>
+            <br />
+            <button type="button" class="generic_button" id="join_button" name="button" onclick="joinRoom()">
+                Join
+            </button>
+        </div>
+        <div class="wrapper_item" id="sidebar_left">
+            <div class="textbox">
+                <h2>Welcome to Scribble it</h2>
+                <p>
+                    Here you can enter one of the available room from the list, or
+                    create a new one!
+                </p>
+                <p>
+                    Scribble it is a real-time draw-and-guess game with simple rules!
+                </p>
+                <ul>
+                    <li>One player tries to draw an image of something</li>
+                    <li>The others try to guess what it is</li>
+                    <li>
+                        If time runs out, a new drawer is randomly chosen and no point are
+                        awarded
+                    </li>
+                    <li>
+                        Please play with minimum 3 players, Otherwise it will end up in tie
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="wrapper_item" id="sidebar_right">
+            <div class="textbox">
+                <p>Create a room!</p>
+                <p>
+                    Name: <input type="text" id="create_room_input" />
+                    <input type="button" value="Create" class="generic_button" id="button_create"
+                        onclick="createRoom()" />
+                </p>
+                <label for="points">Number of points to win: </label>
+                <select id="points">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option selected="selected" value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <script src="/js/index.js"></script>
+</body>
+
+</html>
