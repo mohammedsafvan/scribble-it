@@ -156,46 +156,7 @@ io.on("connection", function (socket) {
     }
   });
 
-  socket.on("forhint", (msg) => {
-    //TODO: suppose "safvan"
-    word = msg.word;
-    // console.log(word);
-    letters = msg.word.length; // so 6
-    // console.log(letters);
-    // switch (letters) {
-    //   case 2:
-    //   case 3:
-    //     revealChar = letters-1;
-    //     break;
-    //   case 4:
-    //   case 5:
-    //     revealChar = 2;
-    //     break;
-    //   case 6:
-    //   case 7:
-    //     revealChar = 3;
-    //     break;
-    //   case 8:
-    //   case 9:
-    //     revealChar = 4;
-    //     break;
-    //   case (10, 11, 12, 13, 14, 15):
-    //     revealChar = 5;
-    //     break;
-    // }
-    // console.log(revealChar)
-    string = "_ ".repeat(letters).toString(); // "_ _ _ _ _ _ "
-    // for (i = 0; i < revealChar; i++) {
-    //   random = getRandomOdd(0, string.length+1);
-    //   console.log("random is " + random)
-    //   string = string.replaceAt(
-    //     Math.floor(random)+1,
-    //     word.charAt(Math.floor(random / 2) + 1)
-    //   );
-    // }
-    // console.log(string);
-    socket.broadcast.emit("hint", { string : string });
-  });
+  
 
   // To clear the canvas
   socket.on("clearCanvas", (x) => {
