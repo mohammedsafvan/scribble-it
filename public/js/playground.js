@@ -192,9 +192,6 @@ socket.on("allowedToDraw", function (allowedToDraw) {
       modifyers[i].style.display = "inline";
     }
     //Make cursor 'pointer'
-    socket.emit("forhint", {
-      word: currentWord,
-    });
   } else if (allowedToDraw.user == null) {
     //if no one assigned to draw :!!there is a case in server :)
     input.disabled = false;
@@ -219,12 +216,6 @@ socket.on("allowedToDraw", function (allowedToDraw) {
     }
     //TODO: Make cursor 'not-allowed'
   }
-});
-
-socket.on("hint", (hint) => {
-  textPlace = document.getElementById("wordToDraw");
-  // console.log(hint.word); //TODO:
-  textPlace.textContent = hint.string;
 });
 
 //Display new drawing when someone else draws
